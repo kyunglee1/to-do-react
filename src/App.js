@@ -1,9 +1,6 @@
-import React, {useState, useEffect} from 'react';
+// import React, { useState, useEffect } from 'react';
 import './App.css';
 
-export function App() {
-  return (
-    "hello"
-  );
+export default function App() {
+  return 'hello';
 }
-
