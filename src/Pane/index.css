@@ -1,0 +1,18 @@
+.pane {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  background-color: wheat;
+}
+
+button,
+span {
+  margin: 10px;
+}
+
+button {
+}
+
+.button-selected {
+  background-color: yellow;
+}

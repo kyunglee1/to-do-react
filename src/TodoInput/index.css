@@ -1,0 +1,17 @@
+.button-add {
+  border-radius: 0%;
+  width: 5%;
+}
+
+input {
+  width: 70%;
+  height: 50%;
+}
+
+.input-todo {
+  grid-area: input;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: blue;
+}
