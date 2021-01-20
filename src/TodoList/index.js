@@ -10,17 +10,17 @@ export default function TodoList() {
   const [todoInput, setTodoInput] = useState('');
   const [selectedItems, setSelectedItems] = useState([]);
   const [todoList, setTodoList] = useLocalStorage();
-  const handleInputOnChange = (value) => {
+  const handleInputChange = (value) => {
     setTodoInput(value);
   };
-  const handleAddOnClick = () => {
+  const handleAddClick = () => {
     const input = todoInput.trim();
     if (input !== '') {
       setTodoList((prev) => [...prev, todoInput]);
       setTodoInput('');
     }
   };
-  const handleSelectOnClick = (id) => {
+  const handleSelectClick = (id) => {
     if (selectedItems.includes(id)) {
       // Deselect the already-selected item
       const index = selectedItems.indexOf(id);
@@ -31,7 +31,7 @@ export default function TodoList() {
       setSelectedItems((prev) => [...prev, id]);
     }
   };
-  const handleDeleteOnClick = () => {
+  const handleDeleteClick = () => {
     // Remove selected items from TodoList
     const newList = [...todoList].filter(
       (_, id) => selectedItems.indexOf(id) === -1
@@ -49,7 +49,7 @@ export default function TodoList() {
         id={index}
         type={type}
         value={item}
-        onClick={handleSelectOnClick}
+        onSelectClick={handleSelectClick}
       />
     );
   });
@@ -58,15 +58,15 @@ export default function TodoList() {
     <div className="container">
       <TodoInput
         value={todoInput}
-        onChange={handleInputOnChange}
-        onClick={handleAddOnClick}
+        onInputChange={handleInputChange}
+        onAddClick={handleAddClick}
       />
       <div className="panes">{panes}</div>
       {selectedItems.length > 0 && (
         <Button
           type="button-delete"
           value="Delete"
-          onClick={handleDeleteOnClick}
+          onClick={handleDeleteClick}
         />
       )}
     </div>

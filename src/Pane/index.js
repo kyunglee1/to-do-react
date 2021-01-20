@@ -4,13 +4,13 @@ import React from 'react';
 import Button from '../Button';
 import './index.css';
 
-export default function Pane({ id, type, value, onClick }) {
-  const handleOnClick = () => {
-    onClick(id);
+export default function Pane({ id, type, value, onSelectClick }) {
+  const handleClick = () => {
+    onSelectClick(id);
   };
   return (
     <div className="pane">
-      <Button type={type} onClick={handleOnClick} />
+      <Button type={type} onClick={handleClick} />
       <span>{value}</span>
     </div>
   );

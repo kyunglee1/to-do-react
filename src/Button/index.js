@@ -4,10 +4,13 @@
 import React from 'react';
 import './index.css';
 
-export default function Button({ type, value, onClick }) {
+export default function Button({ type, value = '', onClick }) {
+  const handleClick = () => {
+    onClick();
+  };
   return (
-    <button className={type} onClick={onClick}>
-      {value || ''}
+    <button className={type} onClick={handleClick}>
+      {value}
     </button>
   );
 }
