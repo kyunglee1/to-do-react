@@ -78,7 +78,7 @@ export default function TodoList() {
       {selectedItems.length > 0 && (
         <Button
           type="button-delete"
-          value="Delete selected item(s)"
+          value="Delete"
           onClick={handleDeleteOnClick}
         />
       )}
