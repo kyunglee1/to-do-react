@@ -1,11 +1,12 @@
 .button-add {
   border-radius: 0%;
   width: 5%;
+  height: 30%;
 }
 
 input {
   width: 70%;
-  height: 50%;
+  height: 30%;
 }
 
 .input-todo {
@@ -13,5 +14,6 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: blue;
+  background-color: rgb(144, 214, 255);
+  border: 5px double rgb(22, 90, 216);
 }
