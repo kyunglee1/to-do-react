@@ -11,7 +11,7 @@ export default function Pane({ id, type, value, onClick }) {
   return (
     <div className="pane">
       <Button type={type} onClick={handleOnClick} />
-      <span className="pane-value">{value}</span>
+      <span>{value}</span>
     </div>
   );
 }

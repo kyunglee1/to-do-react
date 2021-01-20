@@ -22,6 +22,7 @@ export default function TodoList() {
   };
   const handleSelectOnClick = (id) => {
     if (selectedItems.includes(id)) {
+      // Deselect the already-selected item
       const index = selectedItems.indexOf(id);
       const newSelectedItems = [...selectedItems];
       newSelectedItems.splice(index, 1);
@@ -31,6 +32,7 @@ export default function TodoList() {
     }
   };
   const handleDeleteOnClick = () => {
+    // Remove selected items from TodoList
     const newList = [...todoList].filter(
       (_, id) => selectedItems.indexOf(id) === -1
     );
