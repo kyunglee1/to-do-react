@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-filename-extension */
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import useLocalStorage from '../hooks/localStorage';
 import TodoInput from '../TodoInput/index';
 import Pane from '../Pane/index';
 import Button from '../Button/index';
@@ -8,23 +9,7 @@ import './index.css';
 export default function TodoList() {
   const [todoInput, setTodoInput] = useState('');
   const [selectedItems, setSelectedItems] = useState([]);
-  const [todoList, setTodoList] = useState([]);
-  useEffect(() => {
-    const storedList = localStorage.getItem('todoList');
-    if (storedList) {
-      setTodoList(JSON.parse(storedList));
-    }
-  }, []);
-  useEffect(() => {
-    function storeList() {
-      localStorage.setItem('todoList', JSON.stringify(todoList));
-    }
-    window.addEventListener('beforeunload', storeList);
-    return () => {
-      window.removeEventListener('beforeunload', storeList);
-    };
-  }, [todoList]);
-
+  const [todoList, setTodoList] = useLocalStorage();
   const handleInputOnChange = (value) => {
     setTodoInput(value);
   };
