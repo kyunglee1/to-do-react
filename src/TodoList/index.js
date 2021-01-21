@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-filename-extension */
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import useLocalStorage from '../hooks/localStorage';
 import TodoInput from '../TodoInput/index';
 import Pane from '../Pane/index';
@@ -16,7 +17,7 @@ export default function TodoList() {
   const handleAddClick = () => {
     const input = todoInput.trim();
     if (input !== '') {
-      setTodoList((prev) => [...prev, todoInput]);
+      setTodoList((prev) => [...prev, { value: todoInput, id: uuidv4() }]);
       setTodoInput('');
     }
   };
@@ -45,10 +46,10 @@ export default function TodoList() {
     return (
       <Pane
         // eslint-disable-next-line react/no-array-index-key
-        key={item + index}
+        key={item.id}
         id={index}
         type={type}
-        value={item}
+        value={item.value}
         onSelectClick={handleSelectClick}
       />
     );
