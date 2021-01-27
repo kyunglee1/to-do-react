@@ -1,19 +1,21 @@
 /* eslint-disable react/jsx-filename-extension */
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import useLocalStorage from '../hooks/localStorage';
+import useLocalStorage from '../hooks/useLocalStorage';
 import TodoInput from '../TodoInput/index';
 import Pane from '../Pane/index';
 import Button from '../Button/index';
 import './index.css';
 
-export default function TodoList() {
+const TodoList = () => {
   const [todoInput, setTodoInput] = useState('');
   const [selectedItems, setSelectedItems] = useState([]);
   const [todoList, setTodoList] = useLocalStorage();
+
   const handleInputChange = (value) => {
     setTodoInput(value);
   };
+
   const handleAddClick = () => {
     const input = todoInput.trim();
     if (input !== '') {
@@ -21,34 +23,35 @@ export default function TodoList() {
       setTodoInput('');
     }
   };
-  const handleSelectClick = (id) => {
-    if (selectedItems.includes(id)) {
+
+  const handleSelectClick = (paneId) => {
+    if (selectedItems.includes(paneId)) {
       // Deselect the already-selected item
-      const index = selectedItems.indexOf(id);
+      const index = selectedItems.indexOf(paneId);
       const newSelectedItems = [...selectedItems];
       newSelectedItems.splice(index, 1);
       setSelectedItems(newSelectedItems);
     } else {
-      setSelectedItems((prev) => [...prev, id]);
+      setSelectedItems((prev) => [...prev, paneId]);
     }
   };
+
   const handleDeleteClick = () => {
     // Remove selected items from TodoList
     const newList = [...todoList].filter(
-      (_, id) => selectedItems.indexOf(id) === -1
+      (_, paneId) => selectedItems.indexOf(paneId) === -1
     );
     setTodoList(newList);
     setSelectedItems([]);
   };
 
   const panes = todoList.map((item, index) => {
-    const type = selectedItems.includes(index) ? 'button-selected' : '';
+    const buttonType = selectedItems.includes(index) ? 'button-selected' : '';
     return (
       <Pane
-        // eslint-disable-next-line react/no-array-index-key
         key={item.id}
         id={index}
-        type={type}
+        buttonType={buttonType}
         value={item.value}
         onSelectClick={handleSelectClick}
       />
@@ -72,4 +75,6 @@ export default function TodoList() {
       )}
     </div>
   );
-}
+};
+
+export default TodoList;

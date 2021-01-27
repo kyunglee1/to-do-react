@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
 
-export default function useLocalStorage() {
+const useLocalStorage = () => {
   const [todoList, setTodoList] = useState([]);
+
   useEffect(() => {
     const storedList = localStorage.getItem('todoList');
     if (storedList) {
       setTodoList(JSON.parse(storedList));
     }
   }, []);
+
   useEffect(() => {
     function storeList() {
       localStorage.setItem('todoList', JSON.stringify(todoList));
@@ -19,4 +21,6 @@ export default function useLocalStorage() {
   }, [todoList]);
 
   return [todoList, setTodoList];
-}
+};
+
+export default useLocalStorage;

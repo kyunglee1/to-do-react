@@ -1,7 +1,7 @@
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import TodoList from '../TodoList/index';
 
-export default function App() {
-  // eslint-disable-next-line react/jsx-filename-extension
-  return <TodoList />;
-}
+const App = () => <TodoList />;
+
+export default App;
