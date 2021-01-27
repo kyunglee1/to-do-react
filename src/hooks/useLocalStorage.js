@@ -11,10 +11,12 @@ const useLocalStorage = () => {
   }, []);
 
   useEffect(() => {
-    function storeList() {
+    const storeList = () => {
       localStorage.setItem('todoList', JSON.stringify(todoList));
-    }
+    };
+
     window.addEventListener('beforeunload', storeList);
+
     return () => {
       window.removeEventListener('beforeunload', storeList);
     };
