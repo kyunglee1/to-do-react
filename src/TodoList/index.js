@@ -1,10 +1,10 @@
+/* eslint-disable react/button-has-type */
 /* eslint-disable react/jsx-filename-extension */
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import useLocalStorage from '../hooks/useLocalStorage';
 import TodoInput from '../TodoInput/index';
 import Pane from '../Pane/index';
-import Button from '../Button/index';
 import './index.css';
 
 const TodoList = () => {
@@ -45,33 +45,28 @@ const TodoList = () => {
     setSelectedItems([]);
   };
 
-  const panes = todoList.map((item, index) => {
-    const buttonType = selectedItems.includes(index) ? 'button-selected' : '';
-    return (
-      <Pane
-        key={item.id}
-        id={index}
-        buttonType={buttonType}
-        value={item.value}
-        onSelectClick={handleSelectClick}
-      />
-    );
-  });
+  const panes = todoList.map((item, index) => (
+    <Pane
+      key={item.id}
+      id={index}
+      isSelected={selectedItems.includes(index)}
+      value={item.value}
+      onSelectClick={handleSelectClick}
+    />
+  ));
 
   return (
     <div className="container">
       <TodoInput
-        value={todoInput}
+        inputText={todoInput}
         onInputChange={handleInputChange}
         onAddClick={handleAddClick}
       />
       <div className="panes">{panes}</div>
       {selectedItems.length > 0 && (
-        <Button
-          type="button-delete"
-          value="Delete"
-          onClick={handleDeleteClick}
-        />
+        <button className="button-delete" onClick={handleDeleteClick}>
+          Delete
+        </button>
       )}
     </div>
   );

@@ -1,17 +1,21 @@
+/* eslint-disable react/button-has-type */
+/* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/prop-types */
 import React from 'react';
-import Button from '../Button';
 import './index.css';
 
-const Pane = ({ id, buttonType, value, onSelectClick }) => {
+const Pane = ({ id, isSelected, value, onSelectClick }) => {
   const handleClick = () => {
     onSelectClick(id);
   };
 
   return (
     <div className="pane">
-      <Button type={buttonType} onClick={handleClick} />
+      <button
+        className={isSelected ? 'button-selected' : ''}
+        onClick={handleClick}
+      />
       <span>{value}</span>
     </div>
   );

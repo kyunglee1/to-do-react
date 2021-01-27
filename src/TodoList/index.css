@@ -15,6 +15,13 @@
     ' .   .    .';
 }
 
+button {
+  border-radius: 50%;
+  height: 50%;
+  max-height: 20px;
+  outline: none;
+}
+
 .button-delete {
   grid-area: delete;
   justify-self: center;
