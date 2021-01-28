@@ -9,9 +9,20 @@ const TodoInput = ({ inputText, onInputChange, onAddClick }) => {
     onInputChange(e.target.value);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      onAddClick();
+    }
+  };
+
   return (
     <div className="input-todo">
-      <input type="text" value={inputText} onChange={handleChange} />
+      <input
+        type="text"
+        value={inputText}
+        onChange={handleChange}
+        onKeyDown={handleKeyDown}
+      />
       <button className="button-add" onClick={onAddClick}>
         +
       </button>
