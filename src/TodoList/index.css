@@ -17,17 +17,17 @@
 
 button {
   border-radius: 50%;
-  height: 50%;
-  max-height: 20px;
+  min-height: 1rem;
   outline: none;
+  font-size: 1rem;
 }
 
 .button-delete {
   grid-area: delete;
   justify-self: center;
-  width: 10%;
+  align-self: start;
   background-color: rgb(255, 187, 0);
-  border-radius: 5rem;
+  border-radius: 10%;
   border: 2px solid black;
 }
 
@@ -40,6 +40,6 @@ button {
     rgb(255, 255, 255),
     rgb(100, 206, 241)
   );
-  border: 1px double black;
+  border: thin double black;
   overflow-y: auto;
 }
