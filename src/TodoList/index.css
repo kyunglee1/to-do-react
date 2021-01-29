@@ -17,9 +17,9 @@
 
 button {
   border-radius: 50%;
-  min-height: 1rem;
+  min-height: 1.6rem;
   outline: none;
-  font-size: 1rem;
+  font-size: 1.6rem;
 }
 
 .button-delete {
