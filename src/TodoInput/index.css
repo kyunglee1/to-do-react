@@ -14,6 +14,6 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(144, 214, 255);
-  border: 5px double rgb(22, 90, 216);
+  background-color: rgb(255, 218, 138);
+  border: 5px double rgb(87, 87, 87);
 }

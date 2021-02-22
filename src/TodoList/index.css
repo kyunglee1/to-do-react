@@ -35,11 +35,8 @@ button {
   grid-area: panes;
   display: flex;
   flex-direction: column;
-  background-image: linear-gradient(
-    lightblue,
-    rgb(255, 255, 255),
-    rgb(100, 206, 241)
-  );
-  border: thin double black;
+  background-color: whitesmoke;
+  border: 5px double rgb(87, 87, 87);
+  border-top: none;
   overflow-y: auto;
 }

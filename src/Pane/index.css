@@ -12,6 +12,7 @@ span {
 
 span {
   font-size: 1.8rem;
+  word-break: break-word;
 }
 
 .button-selected {
