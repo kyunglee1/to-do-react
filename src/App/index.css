@@ -2,3 +2,9 @@ html {
   font-size: 62.5%;
   background-color: rgb(206, 227, 245);
 }
+
+@media (max-width: 1050px) {
+  html {
+    font-size: 75%;
+  }
+}
